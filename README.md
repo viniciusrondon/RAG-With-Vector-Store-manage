@@ -56,7 +56,7 @@ flowchart LR
         D --> E[FAISS Vector Store]
     end
 
-    subgraph Query & Answer
+    subgraph QA["Query & Answer"]
         F[User Question] --> G[Retrieval Chain]
         G --> E
         E --> G
@@ -66,7 +66,7 @@ flowchart LR
     end
 
     style Ingestion fill:#E3F2FD,stroke:#2196F3,stroke-width:2px
-    style Query\ &\ Answer fill:#F1F8E9,stroke:#8BC34A,stroke-width:2px
+    style QA fill:#F1F8E9,stroke:#8BC34A,stroke-width:2px
     linkStyle default stroke:#999,stroke-width:1px
 ```
 
