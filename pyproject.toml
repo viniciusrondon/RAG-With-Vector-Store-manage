@@ -1,0 +1,57 @@
+[project]
+name = "08-q-a-chatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "arxiv>=2.2.0",
+    "black>=25.1.0",
+    "bs4>=0.0.2",
+    "chromadb>=1.0.15",
+    "faiss-cpu>=1.11.0",
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "langchain>=0.3.26",
+    "langchain-community>=0.3.27",
+    "langchain-huggingface>=0.3.0",
+    "langchain-ollama>=0.3.4",
+    "langchain-openai>=0.3.27",
+    "lxml>=6.0.0",
+    "matplotlib>=3.10.3",
+    "nltk>=3.9.1",
+    "numpy>=1.26,<2",
+    "openai>=1.93.2",
+    "pandas>=2.3.0",
+    "pdfminer",
+    "playwright>=1.53.0",
+    "plotly>=6.1.2",
+    "pymupdf>=1.26.3",
+    "pypdf>=5.7.0",
+    "pypdf2>=3.0.1",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.0,<2.33",
+    "rich>=14.0.0",
+    "scikit-learn>=1.7.0",
+    "scipy>=1.15.3",
+    "seaborn>=0.13.2",
+    "selenium>=4.34.2",
+    "sentence-transformers>=5.0.0",
+    "spacy>=3.8.7",
+    "streamlit>=1.46.0",
+    "tensorflow[and-cuda]==2.18.*",
+    "tf-keras>=2.18.0",
+    "torch==2.3.0+cu118",
+    "torchaudio==2.3.0+cu118",
+    "torchvision==0.18.0+cu118",
+    "unstructured[pdf]>=0.18.5",
+    "webdriver-manager>=4.0.2",
+    "wikipedia>=1.4.0",
+]
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cu118"
+
+[[tool.uv.index]]
+url = "https://pypi.org/simple"
+default = true

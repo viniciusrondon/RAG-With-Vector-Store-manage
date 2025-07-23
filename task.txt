@@ -1,0 +1,62 @@
+1. [Project] Initialize Git repository and create root directory structure with `backend/` and `frontend/`
+2. [Backend] Set up Python virtual environment in `backend/`
+3. [Backend] Install Python dependencies: Django, djangorestframework, django-cors-headers, python-dotenv, langchain, langchain-openai, huggingface embeddings, faiss-cpu, PyPDF2
+4. [Backend] Start Django project `rag_project` and create Django app `rag_app`
+5. [Backend] Configure Django settings:
+   - Add `rag_app`, `rest_framework`, `corsheaders` to `INSTALLED_APPS`
+   - Add `corsheaders.middleware.CorsMiddleware` to `MIDDLEWARE`
+   - Load environment variables from `.env`
+   - Configure `CORS_ALLOWED_ORIGINS` and `REST_FRAMEWORK` settings
+6. [Backend] Create `services/vector_store_manage.py` by adapting existing `vs_utils/vector_store_manage.py`
+7. [Backend] Create `data/vector_store` directory for FAISS index storage
+8. [Backend] Implement Django REST Framework API endpoints:
+   - `GET /api/documents/` to list ingested document sources
+   - `POST /api/documents/upload/` to upload file(s) via multipart/form-data
+   - `POST /api/documents/upload-url/` to ingest document from URL
+   - `DELETE /api/documents/{name}/` to remove document by name
+   - `POST /api/chat/` to accept a question and return an answer
+9. [Backend] Implement serializers, views, and URL routing for all endpoints
+10. [Backend] Integrate `VectorStoreManage` as a singleton service in Django (module-level or AppConfig)
+11. [Backend] Add error handling, input validation, and return appropriate HTTP status codes
+12. [Backend] Write unit tests for API endpoints and vector store logic using Django TestCase or pytest-django
+13. [Frontend] Initialize React application in `frontend/` (using Create React App or Vite)
+14. [Frontend] Install JavaScript dependencies: `axios`, `react-router-dom`, `dotenv`, UI library (Material-UI or Bootstrap), `react-dropzone`
+15. [Frontend] Configure `.env` with `REACT_APP_API_URL` pointing to Django backend
+16. [Frontend] Create API service module to interact with backend endpoints
+17. [Frontend] Implement `ChatPage` component:
+   - Chat interface with message list, input field, send button
+   - Handle form submission, call `/api/chat/`, display responses
+   - Show loading spinner during request
+18. [Frontend] Implement `DocumentsPage` component:
+   - File uploader and URL input
+   - Call `/api/documents/upload/` and `/api/documents/upload-url/`
+   - Fetch and display list of documents via `/api/documents/`
+   - Implement remove button to call `/api/documents/{name}/`
+19. [Frontend] Set up routing between `ChatPage` and `DocumentsPage` using React Router
+20. [Frontend] Add global error handling and user notifications (e.g., toasts for success/error)
+21. [Frontend] Style UI components for responsiveness and good UX
+22. [Frontend] Write unit and integration tests for React components using Jest and React Testing Library
+23. [Docker] Write `Dockerfile` for Django backend:
+   - Install Python dependencies
+   - Copy code, set working directory
+   - Expose port (e.g., 8000), configure entrypoint with `gunicorn` or `manage.py runserver`
+24. [Docker] Write `Dockerfile` for React frontend:
+   - Install Node dependencies
+   - Build production bundle
+   - Serve static files using a lightweight server (e.g., `serve` or Nginx)
+25. [Docker] Create `docker-compose.yml` to orchestrate backend, frontend, and mount volume for `data/vector_store`
+26. [Docker] Test and debug Docker Compose setup locally
+27. [CI/CD] Set up GitHub Actions workflows for:
+   - Linting (flake8 for Python, ESLint for JavaScript)
+   - Running backend and frontend tests
+   - Building Docker images and pushing to registry
+28. [Docs] Write `README.md` at project root with:
+   - Project overview and architecture diagram
+   - Prerequisites and environment variable definitions
+   - Instructions for local development (backend and frontend)
+   - Docker and Docker Compose usage
+   - Running tests
+29. [Docs] Document API endpoints with sample requests and responses (in README or Postman collection)
+30. [Ops] Implement basic logging in backend (Django logging config) and integrate error tracking (e.g., Sentry) if desired
+31. [Ops-Optional] Implement authentication (JWT or session-based) for API endpoints
+32. [Deployment-Optional] Deploy application to a cloud platform (Heroku, AWS, Vercel) and configure auto-deployment pipeline
